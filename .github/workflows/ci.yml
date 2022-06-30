@@ -49,7 +49,7 @@ jobs:
       -
         name: Test Docker
         run: |
-          docker run --rm test-image
+          docker run --rm test-image -e SPRING_PROFILES_ACTIVE=test
       -
         name: Build and push
         uses: docker/build-push-action@v3
