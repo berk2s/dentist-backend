@@ -40,6 +40,17 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
+        name: Build and export to Docker
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          load: true
+          tags: test-image
+      -
+        name: Test Docker
+        run: |
+          docker run --rm test-image -e SPRING_PROFILES_ACTIVE=test
+      -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
