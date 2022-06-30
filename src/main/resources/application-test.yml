@@ -6,3 +6,13 @@ spring:
     password:
   jpa:
     database-platform: org.hibernate.dialect.H2Dialect
+
+
+dentist-app:
+  server-url: "http://dentistapp.com"
+  auth-config:
+    access-token:
+      lifetime: 5m
+    refresh-token:
+      lifetime: 8h
+    purging-refresh-tokens-cron: "* * 0/6 * * *"

@@ -17,9 +17,8 @@ public class WebSecurityConfiguration {
 
         http
                 .authorizeRequests((authz) -> authz
-                        .antMatchers("/login", "/login/**").permitAll()
-                        .anyRequest().authenticated()
-                );
+                        .antMatchers("/login").permitAll()
+                        .anyRequest().permitAll());
 
         return http.build();
     }

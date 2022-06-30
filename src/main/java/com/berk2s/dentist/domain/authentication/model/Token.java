@@ -1,4 +1,4 @@
-package com.berk2s.dentist.domain.token.model;
+package com.berk2s.dentist.domain.authentication.model;
 
 import lombok.Builder;
 import lombok.Getter;

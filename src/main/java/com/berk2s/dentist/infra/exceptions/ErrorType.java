@@ -4,7 +4,9 @@ import lombok.Getter;
 
 @Getter
 public enum ErrorType {
-    NOT_FOUND("not_found");
+    NOT_FOUND("not_found"),
+    INVALID_REQUEST("invalid_request"),
+    INVALID_GRANT("invalid_grant");
 
     final String type;
 

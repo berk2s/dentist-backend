@@ -1,4 +1,4 @@
-package com.berk2s.dentist.domain.user.usecase;
+package com.berk2s.dentist.domain.authentication.usecase;
 
 import com.berk2s.dentist.domain.usecase.UseCase;
 import lombok.Builder;

@@ -26,7 +26,7 @@ public class SecurityAuthenticationProvider implements AuthenticationProvider {
     @Override
     public Authentication authenticate(Authentication authentication) throws AuthenticationException {
         var phoneNumber = authentication.getName();
-        var givenPass = authentication.getPrincipal().toString();
+        var givenPass = authentication.getCredentials().toString();
 
         var securityUser = securityUserDetailsService
                 .loadUserByUsername(phoneNumber);

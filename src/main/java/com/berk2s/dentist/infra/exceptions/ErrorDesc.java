@@ -7,14 +7,18 @@ import java.util.Map;
 
 @Getter
 public enum ErrorDesc {
-    USER_NOT_FOUND("User not found", 1),
-    INVALID_CREDENTIALS("Invalid credentials", 2);
+    USER_NOT_FOUND("User not found", "user.notFound"),
+    INVALID_CREDENTIALS("Invalid credentials", "authentication.invalidCredentials"),
+    SERVER_ERROR("Server error", "server.error"),
+    INVALID_TOKEN("Invalid token", "authorization.invalidToken"),
+    INVALID_REQUEST("Invalid request", "request.invalid"),
+    INSUFFICIENT_AUTHORITY("Insufficient authority", "authentication.insufficientAuthority");
 
     private final String desc;
-    private final Integer code;
-    private static final Map<String, Integer> errorMap =  new HashMap<>();
+    private final String code;
+    private static final Map<String, String> errorMap =  new HashMap<>();
 
-    ErrorDesc(String desc, Integer code) {
+    ErrorDesc(String desc, String code) {
         this.desc = desc;
         this.code = code;
     }
@@ -25,7 +29,7 @@ public enum ErrorDesc {
         }
     }
 
-    static public Integer getCodeFormDesc(String desc) {
+    static public String getCodeFormDesc(String desc) {
         return errorMap.get(desc);
     }
 }
