@@ -30,10 +30,10 @@ public class AuthenticateUserUseCaseHandler implements UseCaseHandler<Token, Aut
      */
     @Override
     public Token handle(AuthenticateUser authenticateUser) {
+        var user = loginPort.authenticate(authenticateUser);
+
         userPort.checkAuthorities(authenticateUser.getUsername(),
                 authenticateUser.getScopes());
-
-        var user = loginPort.authenticate(authenticateUser);
 
         var claims = new HashMap<String, Object>();
         claims.put("roles", user.getRoles());

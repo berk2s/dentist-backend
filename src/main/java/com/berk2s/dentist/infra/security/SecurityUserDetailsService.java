@@ -3,7 +3,6 @@ package com.berk2s.dentist.infra.security;
 import com.berk2s.dentist.infra.adapters.user.entity.UserEntity;
 import com.berk2s.dentist.infra.adapters.user.facade.UserFacade;
 import com.berk2s.dentist.infra.exceptions.EntityNotFoundException;
-import com.berk2s.dentist.infra.exceptions.ErrorDesc;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -22,8 +21,11 @@ public class SecurityUserDetailsService implements UserDetailsService {
      */
     @Override
     public SecurityUser loadUserByUsername(String phoneNumber) throws UsernameNotFoundException {
-        UserEntity user = userFacade.findByPhoneNumber(phoneNumber);
-
-        return new SecurityUserImpl(user);
+        try {
+            UserEntity user = userFacade.findByPhoneNumber(phoneNumber);
+            return new SecurityUserImpl(user);
+        } catch (EntityNotFoundException e) {
+            throw new UsernameNotFoundException(e.getMessage());
+        }
     }
 }

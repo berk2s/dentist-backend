@@ -17,6 +17,7 @@
 		<java.version>11</java.version>
 		<nimbus-jose-jwt.version>9.23</nimbus-jose-jwt.version>
 		<apache-common-lang3.version>3.12.0</apache-common-lang3.version>
+		<springdoc.version>1.6.9</springdoc.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -82,6 +83,19 @@
 			<version>${apache-common-lang3.version}</version>
 		</dependency>
 
+		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-data-rest -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-data-rest</artifactId>
+			<version>${springdoc.version}</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-ui -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>${springdoc.version}</version>
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>

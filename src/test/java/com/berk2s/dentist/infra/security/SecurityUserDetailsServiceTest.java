@@ -11,6 +11,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import static com.berk2s.dentist.infra.adapters.helpers.MockCreator.mockUser;
 import static org.assertj.core.api.Assertions.assertThat;
@@ -65,7 +66,7 @@ class SecurityUserDetailsServiceTest {
                 .thenThrow(new EntityNotFoundException(ErrorDesc.USER_NOT_FOUND.getDesc()));
 
         // When
-        EntityNotFoundException exception = assertThrows(EntityNotFoundException.class,
+        UsernameNotFoundException exception = assertThrows(UsernameNotFoundException.class,
                 () -> securityUserDetailsService
                         .loadUserByUsername(userEntity.getPhoneNumber()));
 

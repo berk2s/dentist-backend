@@ -15,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -46,6 +47,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<ErrorResponse>  handleConstraintViolation(ConstraintViolationException ex) {
         log.warn("ConstraintViolationException: {}", ex.getSQLException().getMessage());
         return createErrorResponse(ErrorType.INVALID_REQUEST.getType(), ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(UsernameNotFoundException.class)
+    protected ResponseEntity<ErrorResponse> handleUsernameNotFoundException(UsernameNotFoundException ex) {
+        log.warn("UsernameNotFoundException: {}", ex.getMessage());
+        return createErrorResponse(ErrorType.INVALID_GRANT.getType(), ErrorDesc.INVALID_CREDENTIALS.getDesc(), HttpStatus.UNAUTHORIZED);
     }
 
     @ExceptionHandler(EntityNotFoundException.class)

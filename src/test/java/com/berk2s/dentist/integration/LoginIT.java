@@ -100,4 +100,21 @@ public class LoginIT extends IntegrationTestBase{
                 .andExpect(jsonPath("$.error_description", is(ErrorDesc.INVALID_CREDENTIALS.getDesc())))
                 .andExpect(jsonPath("$.code", is(ErrorDesc.INVALID_CREDENTIALS.getCode())));
     }
+
+    @DisplayName("Invalid Username Returns Bad Credentials Error")
+    @Test
+    void invalidUsernameReturnsBadCredentialsError() throws Exception {
+        loginRequest.setUsername(RandomStringUtils.randomAlphabetic(6));
+
+        mockMvc.perform(post(LoginController.ENDPOINT)
+                        .contentType(MediaType.APPLICATION_JSON_VALUE)
+                        .content(objectMapper.writeValueAsString(loginRequest)))
+                .andDo(print())
+                .andExpect(status().isUnauthorized())
+                .andExpect(jsonPath("$.error", is(ErrorType.INVALID_GRANT.getType())))
+                .andExpect(jsonPath("$.error_description", is(ErrorDesc.INVALID_CREDENTIALS.getDesc())))
+                .andExpect(jsonPath("$.code", is(ErrorDesc.INVALID_CREDENTIALS.getCode())));
+
+    }
+
 }
