@@ -35,7 +35,7 @@ public class LoginController {
 
     private final UseCaseHandler<Token, AuthenticateUser> authenticateUserUseCaseHandler;
 
-    @Operation(summary = "Creates Shipment")
+    @Operation(summary = "Login operations")
     @ApiResponses(value = {
             @ApiResponse(responseCode = "200", description = "User logged", content = {
                     @Content(mediaType = "application/json", schema = @Schema(implementation = LoginResponse.class),

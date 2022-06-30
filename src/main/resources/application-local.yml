@@ -1,12 +1,14 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:dentist_test_db
-    driver-class-name: org.h2.Driver
-    username: sa
-    password:
+    url: ${DB_URL}
+    username: ${DB_USER}
+    password: ${DB_PASS}
   jpa:
-    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate.ddl-auto: create
 
+springdoc:
+  swagger-ui:
+    path: /swagger.html
 
 dentist-app:
   server-url: "http://dentistapp.com"
@@ -16,7 +18,3 @@ dentist-app:
     refresh-token:
       lifetime: 8h
     purging-refresh-tokens-cron: "* * 0/6 * * *"
-
-springdoc:
-  swagger-ui:
-    path: /swagger.html

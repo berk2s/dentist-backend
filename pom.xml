@@ -83,6 +83,12 @@
 			<version>${apache-common-lang3.version}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 		<!-- https://mvnrepository.com/artifact/org.springdoc/springdoc-openapi-data-rest -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
