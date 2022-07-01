@@ -16,7 +16,7 @@ services:
       - "3306:3306"
 
   dentist-app:
-    image: berk2s/dentist-app:latest
+    image: berk2s/dentist-app:staging
     container_name: dentist-app
     depends_on:
       - dentist_db
