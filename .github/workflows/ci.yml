@@ -40,18 +40,6 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and export for Testing
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: ./Dockerfile.ci
-          load: true
-          tags: test-image
-      -
-        name: Test Docker
-        run: |
-          docker run --rm test-image
-      -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
