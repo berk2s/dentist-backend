@@ -4,6 +4,7 @@ import com.berk2s.dentist.infra.adapters.user.exceptions.InsufficientAuthorityEx
 import com.berk2s.dentist.infra.exceptions.EntityNotFoundException;
 import com.berk2s.dentist.infra.exceptions.ErrorDesc;
 import com.berk2s.dentist.infra.exceptions.ErrorType;
+import com.berk2s.dentist.infra.exceptions.UniquenessException;
 import com.berk2s.dentist.infra.exceptions.handler.dto.ErrorResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.hibernate.exception.ConstraintViolationException;
@@ -71,6 +72,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     protected ResponseEntity<ErrorResponse> handleInsufficientAuthorityException(InsufficientAuthorityException ex) {
         log.warn("InsufficientAuthorityException: {}", ex.getMessage());
         return createErrorResponse(ErrorType.INVALID_GRANT.getType(), ex.getMessage(), HttpStatus.UNAUTHORIZED);
+    }
+
+    @ExceptionHandler(UniquenessException.class)
+    protected ResponseEntity<ErrorResponse> handleUniquenessException(UniquenessException ex) {
+        log.warn("UniquenessException: {}", ex.getMessage());
+        return createErrorResponse(ErrorType.INVALID_REQUEST.getType(), ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
     private ResponseEntity<ErrorResponse> createErrorResponse(String type, String desc, HttpStatus status) {

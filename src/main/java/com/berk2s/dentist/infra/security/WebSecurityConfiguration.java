@@ -1,4 +1,4 @@
-package com.berk2s.dentist.infra.config;
+package com.berk2s.dentist.infra.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,6 +18,7 @@ public class WebSecurityConfiguration {
         http
                 .authorizeRequests((authz) -> authz
                         .antMatchers("/login").permitAll()
+                        .antMatchers("/roles").permitAll()
                         .anyRequest().permitAll());
 
         return http.build();

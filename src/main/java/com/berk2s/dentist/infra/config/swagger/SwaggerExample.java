@@ -10,5 +10,10 @@ public final class SwaggerExample {
     public static final String INVALID_LOGIN_REQUEST_BODY = "{\"error\":\"invalid_request\",\"error_description\":\"Invalid request\",\"code\":\"request.invalid\",\"details\":[\"Username must not be empty\",\"Scopes must not be empty\",\"Password must not be empty\"]}";
     public static final String INVALID_USERNAME_ERROR = "{\"error\":\"invalid_grant\",\"error_description\":\"Invalid credentials\",\"code\":\"authentication.invalidCredentials\",\"details\":[]}";
 
+    public static final String CREATED_ROLE_RESPONSE = "{\"id\":1,\"roleName\":\"sTpGMPxX\",\"roleDescription\":\"crmhCpHhSerhPiDwbJOz\",\"createdAt\":\"2022-07-02T14:26:15.908271\",\"lastModifiedAt\":\"2022-07-02T14:26:15.908271\"}\n";
+    public static final String INVALID_CREATE_ROLE_REQUEST_ERROR = "{\"error\":\"invalid_request\",\"error_description\":\"Invalid request\",\"code\":\"request.invalid\",\"details\":[\"createRole.roleDescription.empty\",\"createRole.roleName.empty\"]}\n";
+    public static final String SIZE_CREATE_ROLE_REQUEST_ERROR = "{\"error\":\"invalid_request\",\"error_description\":\"Invalid request\",\"code\":\"request.invalid\",\"details\":[\"createRole.roleName.notInRange\",\"createRole.roleDescription.notInRange\"]}\n";
+    public static final String ROLE_NAME_ALREADY_TAKEN_ERROR = "{\"error\":\"invalid_request\",\"error_description\":\"Role name already taken\",\"code\":\"createRole.roleName.exists\",\"details\":[]}\n";
+
     private SwaggerExample(){}
 }

@@ -12,7 +12,8 @@ public enum ErrorDesc {
     SERVER_ERROR("Server error", "server.error"),
     INVALID_TOKEN("Invalid token", "authorization.invalidToken"),
     INVALID_REQUEST("Invalid request", "request.invalid"),
-    INSUFFICIENT_AUTHORITY("Insufficient authority", "authentication.insufficientAuthority");
+    INSUFFICIENT_AUTHORITY("Insufficient authority", "authentication.insufficientAuthority"),
+    ROLE_NAME_ALREADY_TAKEN("Role name already taken", "createRole.roleName.exists");
 
     private final String desc;
     private final String code;

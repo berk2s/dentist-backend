@@ -65,7 +65,8 @@ public class IntegrationTestBase {
 
     public RoleEntity createRole() {
         var role = new RoleEntity();
-        role.setRoleName(RandomStringUtils.randomAlphabetic(10));
+        role.setRoleName(RandomStringUtils.randomAlphabetic(5));
+        role.setRoleDescription(RandomStringUtils.randomAlphabetic(5));
 
         roleRepository.save(role);
 
