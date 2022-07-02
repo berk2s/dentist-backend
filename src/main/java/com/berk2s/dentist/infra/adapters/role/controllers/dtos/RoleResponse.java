@@ -5,6 +5,7 @@ import lombok.Builder;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @Builder
@@ -13,6 +14,7 @@ public class RoleResponse {
     private Long id;
     private String roleName;
     private String roleDescription;
+    private List<String> authorities;
     private LocalDateTime createdAt;
     private LocalDateTime lastModifiedAt;
 
@@ -21,6 +23,7 @@ public class RoleResponse {
                 .id(role.getId())
                 .roleName(role.getRoleName())
                 .roleDescription(role.getRoleDescription())
+                .authorities(role.getAuthorities())
                 .createdAt(role.getCreatedAt())
                 .lastModifiedAt(role.getLastModifiedAt())
                 .build();

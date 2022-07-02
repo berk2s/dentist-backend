@@ -9,16 +9,22 @@ import java.time.LocalDateTime;
 public class RoleFakeAdapter implements RolePort {
     @Override
     public Role create(CreateRole createRole) {
-        if(createRole.getRoleName().equals("NOT_UNIQUE")) {
-            throw new RuntimeException("");
-        }
-
         return Role.builder()
                 .id(1L)
                 .roleName(createRole.getRoleName())
                 .roleDescription(createRole.getRoleDescription())
+                .authorities(createRole.getAuthorities())
                 .createdAt(LocalDateTime.now())
                 .lastModifiedAt(LocalDateTime.now())
                 .build();
+    }
+
+    @Override
+    public boolean isRoleNameTaken(String roleName) {
+        if(roleName.equals("NOT_UNIQUE")) {
+            return true;
+        }
+
+        return false;
     }
 }

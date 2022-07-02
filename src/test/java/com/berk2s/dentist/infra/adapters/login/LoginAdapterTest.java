@@ -3,7 +3,7 @@ package com.berk2s.dentist.infra.adapters.login;
 import com.berk2s.dentist.domain.authentication.usecase.AuthenticateUser;
 import com.berk2s.dentist.infra.adapters.user.entity.UserEntity;
 import com.berk2s.dentist.infra.adapters.user.facade.UserFacade;
-import com.berk2s.dentist.infra.exceptions.ErrorDesc;
+import com.berk2s.dentist.domain.error.ErrorDesc;
 import com.berk2s.dentist.infra.security.SecurityAuthenticationProvider;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.junit.jupiter.api.BeforeEach;

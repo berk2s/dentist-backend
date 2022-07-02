@@ -5,7 +5,7 @@ import com.berk2s.dentist.infra.adapters.token.exceptions.TokenException;
 import com.berk2s.dentist.infra.time.TimeUtils;
 import com.berk2s.dentist.infra.config.JwtPkiConfiguration;
 import com.berk2s.dentist.infra.config.ServerConfiguration;
-import com.berk2s.dentist.infra.exceptions.ErrorDesc;
+import com.berk2s.dentist.domain.error.ErrorDesc;
 import com.nimbusds.jose.JOSEException;
 import com.nimbusds.jose.JWSAlgorithm;
 import com.nimbusds.jose.JWSHeader;

@@ -3,7 +3,7 @@ package com.berk2s.dentist.infra.adapters.user;
 import com.berk2s.dentist.infra.adapters.user.exceptions.InsufficientAuthorityException;
 import com.berk2s.dentist.infra.adapters.user.facade.UserFacade;
 import com.berk2s.dentist.infra.adapters.user.port.UserPort;
-import com.berk2s.dentist.infra.exceptions.ErrorDesc;
+import com.berk2s.dentist.domain.error.ErrorDesc;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

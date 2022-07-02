@@ -3,7 +3,7 @@ package com.berk2s.dentist.infra.adapters.user.facade;
 import com.berk2s.dentist.infra.adapters.user.entity.UserEntity;
 import com.berk2s.dentist.infra.adapters.user.repository.UserRepository;
 import com.berk2s.dentist.infra.exceptions.EntityNotFoundException;
-import com.berk2s.dentist.infra.exceptions.ErrorDesc;
+import com.berk2s.dentist.domain.error.ErrorDesc;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

@@ -3,7 +3,7 @@ package com.berk2s.dentist.infra.security;
 import com.berk2s.dentist.infra.adapters.user.entity.UserEntity;
 import com.berk2s.dentist.infra.adapters.user.facade.UserFacade;
 import com.berk2s.dentist.infra.exceptions.EntityNotFoundException;
-import com.berk2s.dentist.infra.exceptions.ErrorDesc;
+import com.berk2s.dentist.domain.error.ErrorDesc;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

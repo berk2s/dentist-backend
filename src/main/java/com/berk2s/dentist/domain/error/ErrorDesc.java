@@ -1,4 +1,4 @@
-package com.berk2s.dentist.infra.exceptions;
+package com.berk2s.dentist.domain.error;
 
 import lombok.Getter;
 
@@ -13,7 +13,8 @@ public enum ErrorDesc {
     INVALID_TOKEN("Invalid token", "authorization.invalidToken"),
     INVALID_REQUEST("Invalid request", "request.invalid"),
     INSUFFICIENT_AUTHORITY("Insufficient authority", "authentication.insufficientAuthority"),
-    ROLE_NAME_ALREADY_TAKEN("Role name already taken", "createRole.roleName.exists");
+    ROLE_NAME_ALREADY_TAKEN("Role name already taken", "createRole.roleName.exists"),
+    AUTHORITY_NOT_FOUND("Authority not found", "authority.notFound");
 
     private final String desc;
     private final String code;

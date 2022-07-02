@@ -1,5 +1,6 @@
 package com.berk2s.dentist.infra.adapters.authority.entity;
 
+import com.berk2s.dentist.domain.authority.model.Authority;
 import com.berk2s.dentist.infra.entities.LongIdentifierEntity;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,4 +16,9 @@ public class AuthorityEntity extends LongIdentifierEntity {
     @Column
     private String authorityName;
 
+    public Authority toModel() {
+        return Authority.builder()
+                .authorityName(authorityName)
+                .build();
+    }
 }

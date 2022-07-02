@@ -5,7 +5,9 @@ import lombok.Builder;
 import lombok.Data;
 
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.List;
 
 @Data
 @Builder
@@ -19,10 +21,15 @@ public class CreateRoleRequest {
     @Size(min = 3, max = 300, message = "createRole.roleDescription.notInRange")
     private String roleDescription;
 
+    @NotNull(message = "createRole.roleAuthorities.empty")
+    @Size(min = 1, max = 1000, message = "createRole.roleAuthorities.notInRange")
+    private List<String> authorities;
+
     public CreateRole toUseCase() {
         return CreateRole.builder()
                 .roleName(roleName)
                 .roleDescription(roleDescription)
+                .authorities(authorities)
                 .build();
     }
 }

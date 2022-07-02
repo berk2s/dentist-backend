@@ -1,8 +1,9 @@
 package com.berk2s.dentist.infra.exceptions.handler;
 
+import com.berk2s.dentist.domain.role.exception.RoleNameTakenException;
 import com.berk2s.dentist.infra.adapters.user.exceptions.InsufficientAuthorityException;
 import com.berk2s.dentist.infra.exceptions.EntityNotFoundException;
-import com.berk2s.dentist.infra.exceptions.ErrorDesc;
+import com.berk2s.dentist.domain.error.ErrorDesc;
 import com.berk2s.dentist.infra.exceptions.ErrorType;
 import com.berk2s.dentist.infra.exceptions.UniquenessException;
 import com.berk2s.dentist.infra.exceptions.handler.dto.ErrorResponse;
@@ -77,6 +78,12 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(UniquenessException.class)
     protected ResponseEntity<ErrorResponse> handleUniquenessException(UniquenessException ex) {
         log.warn("UniquenessException: {}", ex.getMessage());
+        return createErrorResponse(ErrorType.INVALID_REQUEST.getType(), ex.getMessage(), HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(RoleNameTakenException.class)
+    protected ResponseEntity<ErrorResponse> handleRoleNameTakenException(RoleNameTakenException ex) {
+        log.warn("RoleNameTakenException: {}", ex.getMessage());
         return createErrorResponse(ErrorType.INVALID_REQUEST.getType(), ex.getMessage(), HttpStatus.BAD_REQUEST);
     }
 
