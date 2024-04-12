@@ -2,7 +2,8 @@ version: '3.8'
 
 services:
   dentist-db:
-    image: mysql
+    platform: linux/x86_64
+    image: mysql:5.7
     container_name: dentist_db
     restart: always
     environment:
@@ -16,7 +17,7 @@ services:
       - "3306:3306"
 
   dentist-app:
-    image: berk2s/dentist-app:latest
+    image: berk2s/dentist-app:staging
     container_name: dentist-app
     depends_on:
       - dentist_db

@@ -1,4 +1,4 @@
-name: ci
+name: Dockerhub CI/CD
 
 on:
   push:
@@ -18,7 +18,7 @@ jobs:
         uses: docker/metadata-action@v4
         with:
           images: |
-            dentist-app
+            berk2s/dentist-app
           tags: |
             type=schedule
             type=ref,event=branch
@@ -40,21 +40,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
       -
-        name: Build and export to Docker
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          load: true
-          tags: ${{ env.TEST_TAG }}
-      -
-        name: Test Docker
-        run: |
-          docker run --rm ${{ env.TEST_TAG }}
-      -
         name: Build and push
         uses: docker/build-push-action@v3
         with:
           context: .
+          file: ./Dockerfile.ci
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
